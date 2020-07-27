@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width"/>
 	<title>Dispay Details</title>
 	<style>
+		/*** Reset Style	***/
 		html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
 			margin: 0;
 			padding: 0;
@@ -85,6 +86,33 @@
 		input, select {
 			vertical-align:middle;
 		}
+		
+		/*** Formatting ***/
+		table {
+			margin: 0 auto;
+			width: 100vw;
+			text-align: center;
+		}
+		
+		.spacer {
+			width: 30px;
+			border-bottom: 0;
+			border-top: 0;
+		}
+		
+		.first {
+			width: 30px;
+			border-bottom: 0;
+		}
+		
+		.last {
+			width: 30px;
+			border-top: 0;
+		}
+		
+		th, td {
+			border: 1px solid #999;
+		}
 	</style>
 </head>
 
@@ -93,12 +121,19 @@
 		<caption>Dictionary Name</caption>
 		<thead>
 			<tr>
+				<th class="first"></th>
 				<th>Key</th>
 				<th>Value</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
+				<td class="spacer"></th>
+				<td>Key1</td>
+				<td>Value1</td>
+			</tr>
+			<tr>
+				<td class="last"></th>
 				<td>Key1</td>
 				<td>Value1</td>
 			</tr>
