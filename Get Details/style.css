@@ -33,39 +33,37 @@ table {
 
 /*** Formatting ***/
 body {
-    background: #f1f1f7;
+    background: #F2F2F6;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 400;
-    font-size: 17px;
 }
 
 table {
     overflow: visible;
-    margin: 0 auto;
-    width: 750px;
+    margin: auto;
+    margin-top: 96px;
+    margin-bottom: 214px;
+    min-width: 1125px;
     text-align: center;
-    border-color: #B3B3B5;
     background-color: #fff;
 }
 
 caption {
-    margin: 40px 0 8px 16px;
+    margin-left: 48px;
+    margin-bottom: 22px;
     text-align: left;
-    color: rgba(59,59,67,.6);
-    font-size: 13px;
+    font-size: 39px;
+    letter-spacing: 1.4px;
     text-transform: uppercase;
+    color: #3C3C43;
+    opacity: 60%;
 }
-
 
 .key, .value {
     vertical-align: middle;
-    border-top: 1px solid #C6C6C8;
-    height: 44px;
-}
-
-.spacer {
-    width: 16px;
-    border: 0;
+    border-top: 1px solid #C6C6C7;
+    height: 132px;
+    font-size: 51px;
+    letter-spacing: .75px;
 }
 
 .key {
@@ -73,29 +71,18 @@ caption {
 }
 
 .value {
-    width: 190px;
     text-align: right;
+    width: 190px;
     padding-right: 15px;
     color: rgba(59,59,67,.6);
+}
+/*23.4375*/
+.spacer {
+    width: 16px;
+    border: 0;
 }
 
 svg {
     padding: 0 0 1px 8px;
     fill: rgba(60,60,67,0.29);
 }
-
-@media (min-width : 768px) {
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
