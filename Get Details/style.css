@@ -81,20 +81,26 @@ tr:first-child {
 
 .value {
     text-align: right;
-    width: 190px;
     padding-right: 48px;
     color: #3C3C43;
     opacity: 60%;
 }
 
 .spacer {
-    width: calc(100% / 23.4375);
     border: 0;
 }
 
+tr.l1>td.spacer {
+    width: calc(100% / 23.4375);
+}
+
+/*
+.l2 .spacer {
+    width: calc(100% / 11.71875);
+}
+*/
 
 svg {
-    padding: 0 0 0px 22px;
-    margin-top: 1px;
+    margin: 0 0 3px 12px;
     fill: #C7C7CC;
 }
