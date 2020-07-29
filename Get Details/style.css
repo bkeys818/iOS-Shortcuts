@@ -40,12 +40,18 @@ body {
 table {
     overflow: visible;
     margin: auto;
-    margin-top: 96px;
-    margin-bottom: 214px;
     min-width: 1125px;
     text-align: center;
     background-color: #fff;
     border-collapse: collapse;
+}
+
+table.top {
+    margin-top: 96px;
+}
+
+table.bottom {
+    margin-bottom: 214px;
 }
 
 caption {
@@ -88,17 +94,12 @@ tr:first-child {
 
 .spacer {
     border: 0;
-}
-
-tr.l1>td.spacer {
     width: calc(100% / 23.4375);
 }
 
-/*
-.l2 .spacer {
-    width: calc(100% / 11.71875);
+.l2 .value {
+    padding-right: 116.5px;
 }
-*/
 
 svg {
     margin: 0 0 3px 12px;
