@@ -48,10 +48,13 @@ table {
 
 table.top {
     margin-top: 96px;
+    border-top: 1px solid #C6C6C7;
 }
 
 table.bottom {
     margin-bottom: 214px;
+    border-bottom: 1px solid #C6C6C7;
+
 }
 
 caption {
@@ -71,14 +74,6 @@ caption {
     font-size: 51px;
     letter-spacing: .75px;
     padding: 40.5px 0 39.5px;
-}
-
-tr:last-child {
-    border-bottom: 1px solid #C6C6C7;
-}
-
-tr:first-child {
-    border-top: 1px solid #C6C6C7;
 }
 
 .key {
