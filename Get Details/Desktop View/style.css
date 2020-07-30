@@ -34,32 +34,19 @@ table {
 /*** Formatting ***/
 body {
     background: #F2F2F6;
+    overflow: visible;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 table {
-    table-layout: fixed;
-    overflow: visible;
     margin: auto;
-    width: 1125px;
-    text-align: center;
     background-color: #fff;
     border-collapse: collapse;
-}
-
-table.top {
-    margin-top: calc(100% / 11.71875);
-    border-top: 1px solid #C6C6C7;
-}
-
-table.bottom {
-    margin-bottom: 214px;
-    border-bottom: 1px solid #C6C6C7;
-
+    width: 1125px;
 }
 
 caption {
-    margin-left: calc(100% / 23.4375);
+    margin-left: calc(100% * (48 / 1125));
     margin-bottom: 22px;
     text-align: left;
     font-size: 2.4375em;
@@ -67,37 +54,45 @@ caption {
     text-transform: uppercase;
     color: #3C3C43;
     opacity: 60%;
+    margin-top: 96px;
 }
 
-.key, .value {
-    vertical-align: middle;
+tr:first-of-type {
     border-top: 1px solid #C6C6C7;
-    font-size: 3.1875em;
-    letter-spacing: calc(100% / 1500);
-    padding: 40.5px 0 39.5px;
-    word-wrap: break-word;
 }
 
-.key {
-    text-align: left;
-    margin-right: 15px;
+tr:last-of-type {
+    margin-bottom: 214px;
+    border-bottom: 1px solid #C6C6C7;
 }
 
-.value {
-    text-align: right;
-    padding-right: calc(100% / 23.4375);
-    color: #3C3C43;
-    opacity: 60%;
+table:last-of-type .key, table:last-of-type .value {
+    padding-top: 40.5px!important;
+    padding-bottom: 38.5px!important;
 }
 
 .spacer {
     border: 0;
-    width: calc(100% / 23.4375);
+    width: calc(1080px * (48 / 1125));
+    
 }
 
-.l2 .value {
-    padding-right: 116.5px;
+.key, .value {
+    font-size: 3.1875em; /*51*/
+    letter-spacing: 75%;
+    border-top: 1px solid #C6C6C7;
+    padding: 40.5px 0 39.5px;
 }
-img {
-    margin: 0 0 calc(100% / 375) calc(100% / 93.75);
+
+.key {
+    text-align: left;
+    padding-right: calc(100% * (48 / 1125));
+}
+
+.value {
+    text-align: right;
+    padding-right: calc(100% * (48 / 1125));
+    color: #3C3C43;
+    opacity: 60%;
+    word-break: break-all;
 }
