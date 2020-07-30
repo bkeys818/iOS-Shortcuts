@@ -6,6 +6,6 @@ An iOS shortcut fetches metadata from an input, and presents it in a format for 
 
 ### Contents
 
-- [HTML used in shortcut]()
-- [Desktop version of HMTL](https://github.com/bkeys818/get-details/tree/master/Get%20Details/Desktop%20View)
-- [JSON for sending out updates]()
+- [HTML used in shortcut](https://github.com/bkeys818/get-details/blob/master/iOS-tableView.html)
+- [Desktop version of HMTL](https://github.com/bkeys818/get-details/tree/master/Desktop%20View)
+- [JSON for sending out updates](https://github.com/bkeys818/get-details/blob/master/Update.json)
