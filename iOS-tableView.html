@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1125"/>
     <style>
-		@charset "UTF-8";
+@charset "UTF-8";
 /* Reset Formatting */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
@@ -34,23 +34,20 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
 /*** Formatting ***/
 body {
     background: #F2F2F6;
     overflow: visible;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
-
 table {
     margin: auto;
     background-color: #fff;
     border-collapse: collapse;
     width: 1125px;
 }
-
 caption {
-    margin-left: calc(100% * (48 / 1125));
+margin-left: calc(100% * (48 / 1125));
     margin-bottom: 22px;
     text-align: left;
     font-size: 2.4375em;
@@ -60,71 +57,77 @@ caption {
     opacity: 60%;
     margin-top: 96px;
 }
-
 tr:first-of-type {
     border-top: 1px solid #C6C6C7;
 }
-
 tr:last-of-type {
     margin-bottom: 214px;
     border-bottom: 1px solid #C6C6C7;
 }
-
 table:last-of-type .key, table:last-of-type .value {
     padding-top: 40.5px!important;
     padding-bottom: 38.5px!important;
 }
-
 .spacer {
     border: 0;
-    width: calc(1080px * (48 / 1125));
-    
+width: calc(1080px * (48 / 1125));
 }
-
 .key, .value {
     font-size: 3.1875em; /*51*/
     letter-spacing: 75%;
     border-top: 1px solid #C6C6C7;
     padding: 40.5px 0 39.5px;
 }
-
 .key {
     text-align: left;
-    padding-right: calc(100% * (48 / 1125));
+padding-right: calc(100% * (48 / 1125));
 }
-
 .value {
     text-align: right;
-    padding-right: calc(100% * (48 / 1125));
+padding-right: calc(100% * (48 / 1125));
     color: #3C3C43;
     opacity: 60%;
     word-break: break-all;
-	}
-    </style>
+}
+</style>
     <title>Dispay Details</title>
 </head>
 
 <body>
     <table>
-			<caption>Header</caption>
-        <tr>
+        <caption>Header</caption>
+        <tr class="l1">
             <td class="spacer"></td>
             <td class="key">Key 1</td>
             <td class="value">Value 1</td>
         </tr>
     </table>
     <table>
-        <tr>
+        <tr class="l1">
             <td class="spacer"></td>
             <td class="key">Key 2</td>
             <td class="value">Value 2</td>
         </tr>
     </table>
     <table>
-        <tr>
+        <tr class="l3">
             <td class="spacer"></td>
             <td class="key">Key 3</td>
             <td class="value">Value 3</td>
+        </tr>
+    </table>
+    <table>
+        <tr class="l2">
+            <td class="spacer"></td>
+            <td class="key">Key 4</td>
+            <td class="value">Value 4</td>
+        </tr>
+    </table>
+    <table>
+        <tr class="l1">
+            <td class="spacer"></td>
+            <td class="key">Key 5</td>
+            <td class="value">Value 5</td>
         </tr>
     </table>
 </body>
