@@ -42,7 +42,13 @@ table {
     margin: auto;
     background-color: #fff;
     border-collapse: collapse;
+    max-width: 1125px;
     width: 1125px;
+    overflow: hidden;
+}
+
+table:last-of-type {
+    margin-bottom: 214px;
 }
 
 caption {
@@ -62,7 +68,6 @@ tr:first-of-type {
 }
 
 tr:last-of-type {
-    margin-bottom: 214px;
     border-bottom: 1px solid #C6C6C7;
 }
 
@@ -73,12 +78,11 @@ table:last-of-type .key, table:last-of-type .value {
 
 .spacer {
     border: 0;
-    width: calc(1080px * (48 / 1125));
-    
+    width: calc(100% * (48 / 1125));
 }
 
 .key, .value {
-    font-size: 3.1875em; /*51*/
+    font-size: 3.1875em; /* 51px */
     letter-spacing: 75%;
     border-top: 1px solid #C6C6C7;
     padding: 40.5px 0 39.5px;
@@ -86,7 +90,7 @@ table:last-of-type .key, table:last-of-type .value {
 
 .key {
     text-align: left;
-    padding-right: calc(100% * (48 / 1125));
+    padding-right: calc(75% * (48 / 1125));
 }
 
 .value {
@@ -95,4 +99,29 @@ table:last-of-type .key, table:last-of-type .value {
     color: #3C3C43;
     opacity: 60%;
     word-break: break-all;
+}
+
+.l1 {
+    font-size: calc(1em * (43 / 51));
+}
+.l1 .value {
+    padding-right: calc(250% * (45 / 1125));
+}
+.l2 {
+    font-size: calc(1em * (39 / 51));
+}
+.l2 .value {
+    padding-right: calc(400% * (48 / 1125));
+}
+.l3 {
+    font-size: calc(1em * (33 / 51));
+}
+.l3 .value {
+    padding-right: calc(550% * (48 / 1125));
+}
+.l4 {
+    font-size: calc(1em * (27 / 51));
+}
+.l4 .value {
+    padding-right: calc(700% * (48 / 1125));
 }
