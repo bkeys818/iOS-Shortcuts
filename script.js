@@ -1,4 +1,4 @@
-var complexity = 0 // for later
+// var complexity = 0 // for later
 
 // Get dictionary from searchParams
 let url = new URL(window.location.href)
@@ -13,7 +13,7 @@ if (url.searchParams.has("dictionary")) {
     var key, thiskey
     for (key in dictionary) {
         if (typeof dictionary[key] != "object" && Array.isArray(dictionary[key]) == false) {
-            createRow(basicTable, 0, key, dictionary[key])
+            createRow(basicTable, key, dictionary[key])
             delete dictionary[key]
         }
     }
@@ -25,7 +25,7 @@ if (url.searchParams.has("dictionary")) {
         var caption = table.createCaption()
         caption.innerHTML = key
 
-        test(table, dictionary[key], 0)
+        test(table, dictionary[key])
         document.body.appendChild(table)
     }
 } else {
@@ -33,30 +33,30 @@ if (url.searchParams.has("dictionary")) {
 }
 
 // Prevent to complex of data from loading
-if (complexity > 4) {
-    document.body.innerHTML = '<h1">Object is to complex.</h1>'
-}
+// if (complexity > 4) {
+//     document.body.innerHTML = '<h1">Object is to complex.</h1>'
+// }
 
 
 /*** FUNCTIONS ***/
 // Function to create table for every item in object using levels for objects inside of objects
-function test(table, thisDictionary, level) {
-    if (level > complexity) { complexity = level }
+function test(table, thisDictionary) {
+    console.log(Object.keys(thisDictionary))
     for (thisKey in thisDictionary) {
         if (typeof thisDictionary[thisKey] == "object" || Array.isArray(thisDictionary[key]) == true) {
-            createRow(table, level, thisKey, `<svg xmlns="http://www.w3.org/2000/svg" width="44.8988" height="26.24711" viewBox="0 0 44.8988 26.24711"><path d="M19.64853,25.00194.99619,5.90234a3.3748,3.3748,0,0,1-.99609-2.416A3.46,3.46,0,0,1,3.43367.0001Q3.44735,0,3.461,0A3.62626,3.62626,0,0,1,6.0021,1.07031L22.463,18.00394,38.89853,1.07031A3.56343,3.56343,0,0,1,41.43759,0a3.45878,3.45878,0,0,1,3.46105,3.45651q0,.01491-.00011.02982a3.26715,3.26715,0,0,1-.99609,2.39061L25.2521,25.00194a3.77477,3.77477,0,0,1-5.60352,0Z" fill="#C7C7CC"/></svg>`)
-            test(table, thisDictionary[thisKey], level + 1)
+            createClickableRow(table, thisKey)
+            //test(table, thisDictionary[thisKey], level + 1)
+            
         } else {
-            createRow(table, level, thisKey, thisDictionary[thisKey])
+            createRow(table, thisKey, thisDictionary[thisKey])
             delete thisDictionary[thisKey]
         }
     }
     delete thisDictionary
 }
 
-function createRow(table, rowLevel, key, value) {
+function createRow(table, key, value) {
     var row = table.insertRow(-1)
-    row.className = `l${rowLevel}`
 
     var spacerCell = row.insertCell(0)
     spacerCell.className = 'spacer'
@@ -68,4 +68,20 @@ function createRow(table, rowLevel, key, value) {
     var valueCell = row.insertCell(2)
     valueCell.className = 'value'
     valueCell.innerHTML = value
+}
+
+function createClickableRow(table, key) {
+    var row = table.insertRow(-1)
+    row.onclick = function() { alert('blah'); };
+
+    var spacerCell = row.insertCell(0)
+    spacerCell.className = 'spacer'
+
+    var keyCell = row.insertCell(1)
+    keyCell.className = 'key'
+    keyCell.innerHTML = key
+
+    var valueCell = row.insertCell(2)
+    valueCell.className = 'value'
+    valueCell.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="26.24711" height="44.8988" viewBox="0 0 26.24711 44.8988"><path class="a" d="M25.00194,25.25027,5.90234,43.90261a3.37483,3.37483,0,0,1-2.416.99609A3.46,3.46,0,0,1,.0001,41.46514h0L0,41.4378a3.62628,3.62628,0,0,1,1.07031-2.5411L18.00394,22.4358,1.07031,6.00027A3.56343,3.56343,0,0,1,0,3.46121,3.45879,3.45879,0,0,1,3.45651.00015h0l.02982.00012A3.26711,3.26711,0,0,1,5.87694.99636l19.125,18.65034a3.77477,3.77477,0,0,1,0,5.60352Z"  fill="#C7C7CC"/></svg>'
 }
