@@ -72,6 +72,9 @@ table {
 table:last-of-type {
     margin-bottom: 214px;
 }
+tr {
+    max-width: 1125px;
+}
 
 caption {
     margin-left: calc(100% * (48 / 1125));
