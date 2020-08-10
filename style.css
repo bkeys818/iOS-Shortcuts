@@ -7,6 +7,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
@@ -30,12 +31,34 @@ table {
 }
 
 
-
 /*** Formatting ***/
 body {
     background: #F2F2F6;
     overflow: visible;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+header {
+    position: relative;
+    height: 132px;
+    width: 100vw;
+    background-color: #F2F2F6;
+    font-size: 3.1875em; /* 51px */
+    color: #007AFF;
+}
+header div {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+header div * {
+    position: relative;
+    display: inline;
+    vertical-align: middle;
+}
+header svg {
+    padding-left: 21px;
+    padding-right: 12px;
 }
 
 table {
@@ -46,16 +69,18 @@ table {
     width: 1125px;
     overflow: hidden;
 }
-
 table:last-of-type {
     margin-bottom: 214px;
+}
+tr {
+    max-width: 1125px;
 }
 
 caption {
     margin-left: calc(100% * (48 / 1125));
     margin-bottom: 22px;
     text-align: left;
-    font-size: 2.4375em;
+    font-size: 2.4375em; /* 39 */
     letter-spacing: 1.4px;
     text-transform: uppercase;
     color: #3C3C43;
@@ -66,11 +91,9 @@ caption {
 tr:first-of-type {
     border-top: 1px solid #C6C6C7;
 }
-
 tr:last-of-type {
     border-bottom: 1px solid #C6C6C7;
 }
-
 table:last-of-type .key, table:last-of-type .value {
     padding-top: 40.5px!important;
     padding-bottom: 38.5px!important;
@@ -99,29 +122,4 @@ table:last-of-type .key, table:last-of-type .value {
     color: #3C3C43;
     opacity: 60%;
     word-break: break-all;
-}
-
-.l1 {
-    font-size: calc(1em * (43 / 51));
-}
-.l1 .value {
-    padding-right: calc(250% * (45 / 1125));
-}
-.l2 {
-    font-size: calc(1em * (39 / 51));
-}
-.l2 .value {
-    padding-right: calc(400% * (48 / 1125));
-}
-.l3 {
-    font-size: calc(1em * (33 / 51));
-}
-.l3 .value {
-    padding-right: calc(550% * (48 / 1125));
-}
-.l4 {
-    font-size: calc(1em * (27 / 51));
-}
-.l4 .value {
-    padding-right: calc(700% * (48 / 1125));
 }
