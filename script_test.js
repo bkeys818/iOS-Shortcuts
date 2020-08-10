@@ -1,2 +1,12 @@
-let url = new URL(window.location.href)
-let dictionary = JSON.parse(url.searchParams.get("dictionary"))
+const input = {
+    "1":"a",
+    "2":"b",
+    "3":"c",
+    "4":"d"
+}
+
+var theInstructions = "console.log(input['2'])";
+
+var F=new Function (theInstructions);
+
+F()
