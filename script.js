@@ -92,6 +92,6 @@ function createRow(key, value) {
 
 function createNavLink(backButtonText) {
     let header = document.createElement('header')
-    header.innerHTML = `<div><svg xmlns="http://www.w3.org/2000/svg" width="18" height="29"><path d="M1.93 13.477l9.118-8.918a1.335 1.335 0 01.972-.398 1.383 1.383 0 011.395 1.394 1.453 1.453 0 01-.422.996l-8.215 8.004 8.215 8.004a1.43 1.43 0 01.422.996 1.383 1.383 0 01-1.395 1.395 1.335 1.335 0 01-.972-.398l-9.118-8.93a1.395 1.395 0 01-.48-1.067 1.437 1.437 0 01.48-1.078z" fill="#007AFF"/><path fill="none" d="M0 0h18v29H0z"/></svg><p>${backButtonText}</p></div>`
+    header.innerHTML = `<div><svg xmlns="http://www.w3.org/2000/svg" width="35.895" height="62.367" style="transform: translateY(3px);"><path d="M1.441 27.95L28.793 1.194A4.005 4.005 0 0131.711 0a4.149 4.149 0 014.184 4.184 4.358 4.358 0 01-1.266 2.988L9.984 31.184 34.63 55.195a4.293 4.293 0 011.266 2.989 4.149 4.149 0 01-4.184 4.183 4.005 4.005 0 01-2.918-1.195L1.441 34.382A4.185 4.185 0 010 31.185a4.31 4.31 0 011.441-3.235z" fill="#007AFF"/></svg><p>${backButtonText}</p></div>`
     return header
 }
