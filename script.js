@@ -1,66 +1,97 @@
+// Instead of linking to new documents, this page works by storing differnt body elements for each page. Then, when a new page is triggered, the appropiate body element is pulled from storage and set as the document's body.
+
 // Get dictionary from searchParams
 let url = new URL(window.location.href)
-let dicSting = url.searchParams.get("dictionary")
-let dictionary = JSON.parse(dicSting)
+if (url.searchParams.has('dictionary') == false) {
+    throw new Error('Please use search params to pass in an object with the key "dictionary".')
+}
+const input = JSON.parse(url.searchParams.get('dictionary'))
 
+// Main Page
+const topBody = document.createElement('body')
 // Create basic metadata table
-var basicTable = document.createElement('TABLE');
-var basicCaption = basicTable.createCaption()
-basicCaption.innerHTML = 'Basic Metadata'
-var key, thiskey
-for (key in dictionary) {
-    if (typeof dictionary[key] != "object" && Array.isArray(dictionary[key]) == false) {
-        createRow(basicTable, 0, key, dictionary[key])
-        delete dictionary[key]
+let basicTable = createTable('Basic Metadata')
+for (let key in input) {
+    let value = input[key]
+    if (typeof value != 'object' && Array.isArray(value) == false) {
+        let row = createRow(key, value)
+        basicTable.appendChild(row)
+        delete input[key]
     }
 }
-document.body.appendChild(basicTable)
+topBody.appendChild(basicTable)
 
-var complexity = 0
-
-// Create tables for complex objects 
-for (key in dictionary) {
-    var table = document.createElement('TABLE');
-    var caption = table.createCaption()
-    caption.innerHTML = key
-
-    test(table, dictionary[key], 0)
-    document.body.appendChild(table)
+// Create tables for complex objects & all other pages
+for (let objTitle in input) {
+    let obj = input[objTitle]
+    let objTable = buildOutTable(objTitle, obj, `(input['${objTitle}'])`, objTitle)
+    topBody.appendChild(objTable)
 }
 
-// Prevent to complex of data from loading
-if (complexity > 4) {
-    document.body.innerHTML = '<h1">Object is to Complex.</h1>'
-}
+// Set body to main page
+document.body = topBody
+
 
 /*** FUNCTIONS ***/
-// Function to create table for every item in object using levels for objects inside of objects
-function test(table, thisDictionary, level) {
-    if (level > complexity) {complexity = level}
-    for (thisKey in thisDictionary) {
-        if (typeof thisDictionary[thisKey] == "object" || Array.isArray(thisDictionary[key]) == true) {
-            createRow(table, level, thisKey, `<svg xmlns="http://www.w3.org/2000/svg" width="44.8988" height="26.24711" viewBox="0 0 44.8988 26.24711"><path d="M19.64853,25.00194.99619,5.90234a3.3748,3.3748,0,0,1-.99609-2.416A3.46,3.46,0,0,1,3.43367.0001Q3.44735,0,3.461,0A3.62626,3.62626,0,0,1,6.0021,1.07031L22.463,18.00394,38.89853,1.07031A3.56343,3.56343,0,0,1,41.43759,0a3.45878,3.45878,0,0,1,3.46105,3.45651q0,.01491-.00011.02982a3.26715,3.26715,0,0,1-.99609,2.39061L25.2521,25.00194a3.77477,3.77477,0,0,1-5.60352,0Z" fill="#C7C7CC"/></svg>`)
-            test(table, thisDictionary[thisKey], level + 1)
+// Create table and fill it with rows for each item in obj. If value of item is another obj, the row will contain an arrow and clicking on it will switch to a new body containing the new obj. This new body is stored as the value of the item.
+function buildOutTable(header, obj, path, navSource) {
+    let table = createTable(header)
+    for (let key in obj) {
+        let value = obj[key]
+        if (typeof value != 'object' && Array.isArray(value) == false) {
+
+            let row = createRow(key, value)
+            table.appendChild(row)
+
         } else {
-            createRow(table, level, thisKey, thisDictionary[thisKey])
-            delete thisDictionary[thisKey]
+
+            let row = createRow(key, '<svg xmlns="http://www.w3.org/2000/svg" width="25.426" height="44.177" style="padding-top:3px"><path d="M24.404 24.355L5.03 43.329a2.958 2.958 0 11-4.134-4.232l17.432-17.01L.896 5.08A2.984 2.984 0 010 2.963 2.923 2.923 0 012.963 0 2.88 2.88 0 015.03.847l19.374 18.95a3.249 3.249 0 011.022 2.29 2.965 2.965 0 01-1.022 2.268z" fill="#C7C7CC"/></svg>')
+            table.appendChild(row)
+
+            let thisPath = `(${path}['${key}'])`
+            row.id = thisPath
+
+            let newTable = buildOutTable(key, value, thisPath)
+
+            let newBody = document.createElement('body')
+
+            newBody.appendChild(createNavLink(navSource))
+            newBody.appendChild(newTable)
+
+            var f1 = new Function('b', 'a', `${row.id}=a;`)
+            f1(input, newBody)
+
+            row.onclick = function () {
+                var f2 = new Function(`document.body=${row.id}`)
+                f2()
+            }
         }
     }
-    delete thisDictionary
+    return table
 }
 
-function createRow(table, rowLevel, key, value) {
-    var row = table.insertRow(-1)
-    row.className = `l${rowLevel}`
+function createTable(header) {
+    let table = document.createElement('table')
+    let caption = table.createCaption()
+    caption.innerHTML = header
+    return table
+}
 
-    var spacerCell = row.insertCell(0)
+function createRow(key, value) {
+    let row = document.createElement('tr')
+    let spacerCell = row.insertCell(0)
     spacerCell.className = 'spacer'
-
-    var keyCell = row.insertCell(1)
+    let keyCell = row.insertCell(1)
     keyCell.className = 'key'
     keyCell.innerHTML = key
-
-    var valueCell = row.insertCell(2)
+    let valueCell = row.insertCell(2)
     valueCell.className = 'value'
     valueCell.innerHTML = value
+    return row
+}
+
+function createNavLink(backButtonText) {
+    let header = document.createElement('header')
+    header.innerHTML = `<div><svg xmlns="http://www.w3.org/2000/svg" width="18" height="29"><path d="M1.93 13.477l9.118-8.918a1.335 1.335 0 01.972-.398 1.383 1.383 0 011.395 1.394 1.453 1.453 0 01-.422.996l-8.215 8.004 8.215 8.004a1.43 1.43 0 01.422.996 1.383 1.383 0 01-1.395 1.395 1.335 1.335 0 01-.972-.398l-9.118-8.93a1.395 1.395 0 01-.48-1.067 1.437 1.437 0 01.48-1.078z" fill="#007AFF"/><path fill="none" d="M0 0h18v29H0z"/></svg><p>${backButtonText}</p></div>`
+    return header
 }
