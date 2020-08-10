@@ -56,10 +56,6 @@ header div * {
     display: inline;
     vertical-align: middle;
 }
-header svg {
-    padding-left: 21px;
-    padding-right: 12px;
-}
 
 table {
     margin: auto;

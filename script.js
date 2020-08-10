@@ -24,7 +24,7 @@ topBody.appendChild(basicTable)
 // Create tables for complex objects & all other pages
 for (let objTitle in input) {
     let obj = input[objTitle]
-    let objTable = buildOutTable(objTitle, obj, `(input['${objTitle}'])`, objTitle)
+    let objTable = buildOutTable(objTitle, obj, `(input['${objTitle}'])`)
     topBody.appendChild(objTable)
 }
 
@@ -34,7 +34,7 @@ document.body = topBody
 
 /*** FUNCTIONS ***/
 // Create table and fill it with rows for each item in obj. If value of item is another obj, the row will contain an arrow and clicking on it will switch to a new body containing the new obj. This new body is stored as the value of the item.
-function buildOutTable(header, obj, path, navSource) {
+function buildOutTable(header, obj, path) {
     let table = createTable(header)
     for (let key in obj) {
         let value = obj[key]
@@ -55,15 +55,16 @@ function buildOutTable(header, obj, path, navSource) {
 
             let newBody = document.createElement('body')
 
-            newBody.appendChild(createNavLink(navSource))
+            newBody.appendChild(createNavLink(path))
             newBody.appendChild(newTable)
 
-            var f1 = new Function('b', 'a', `${row.id}=a;`)
-            f1(input, newBody)
+            let f = new Function('b', 'a', `${row.id}=a;`)
+            f(input, newBody)
 
             row.onclick = function () {
-                var f2 = new Function(`document.body=${row.id}`)
-                f2()
+
+                let f1 = new Function('a', `document.body=${row.id}`)
+                f1(input)
             }
         }
     }
@@ -90,8 +91,17 @@ function createRow(key, value) {
     return row
 }
 
-function createNavLink(backButtonText) {
+function createNavLink(backPath) {
     let header = document.createElement('header')
-    header.innerHTML = `<div><svg xmlns="http://www.w3.org/2000/svg" width="35.895" height="62.367" style="transform: translateY(3px);"><path d="M1.441 27.95L28.793 1.194A4.005 4.005 0 0131.711 0a4.149 4.149 0 014.184 4.184 4.358 4.358 0 01-1.266 2.988L9.984 31.184 34.63 55.195a4.293 4.293 0 011.266 2.989 4.149 4.149 0 01-4.184 4.183 4.005 4.005 0 01-2.918-1.195L1.441 34.382A4.185 4.185 0 010 31.185a4.31 4.31 0 011.441-3.235z" fill="#007AFF"/></svg><p class="unselectable">${backButtonText}</p></div>`
+    let div = document.createElement('div')
+    div.style.padding = '10px'
+    div.style.marginLeft = '11px'
+    div.id = backPath
+    div.onclick = function() {
+        let f = new Function(`document.body=${row.id}`)
+        f()
+    }
+    div.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="35.895" height="62.367" style="transform: translateY(3px); padding-right: 12px;"><path d="M1.441 27.95L28.793 1.194A4.005 4.005 0 0131.711 0a4.149 4.149 0 014.184 4.184 4.358 4.358 0 01-1.266 2.988L9.984 31.184 34.63 55.195a4.293 4.293 0 011.266 2.989 4.149 4.149 0 01-4.184 4.183 4.005 4.005 0 01-2.918-1.195L1.441 34.382A4.185 4.185 0 010 31.185a4.31 4.31 0 011.441-3.235z" fill="#007AFF"/></svg><p class="unselectable">${backPath}</p>`
+    header.appendChild(div)
     return header
 }
