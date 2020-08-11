@@ -1,9 +1,12 @@
 // Get dictionary from searchParams
 let url = new URL(window.location.href)
 if (url.searchParams.has('dictionary') == false) {
-    throw new Error('Please use search params to pass in an object with the key "dictionary".')
+    throw new Error('Please use search params to pass in an object (dictionary) with the key "dictionary".')
 }
 const input = JSON.parse(url.searchParams.get('dictionary'))
+if (typeof input != 'object' || Array.isArray(input) == true) {
+    throw new Error('Input must be a object (dictionary).')
+}
 
 // Instead of linking to new documents, this page works by storing differnt body elements for each page. Then, when a new page is triggered, the appropiate body element is pulled from storage and set as the document's body.
 var bodys = {}
@@ -16,7 +19,9 @@ function createBody(key2, parents = []) {
         path += `['${parent}']['children']`
     }
     if (parents.length > 0) {
-        let backNav = createBackNav(path.slice(0, path.length-12), parents[parents.length - 1])
+        let title = parents[parents.length - 1]
+        if (title == 'landing') {title = 'Baisc Metadata'}
+        let backNav = createBackNav(path.slice(0, path.length-12), title)
         body.appendChild(backNav)
     }
     let createItemAtPath = new Function('bodys', 'body', `${path}['${key2}'] = {body:body, children:{}}; return ${path}['${key2}'].body`)
@@ -62,6 +67,7 @@ function buildOutTable(header, obj, pathArray) {
             newBody.appendChild(newTable)
             let path = 'bodys'
             for (page of pathArray) {
+                window.scroll(0, 0)
                 path += `['${page}']['children']`
             }
 
@@ -106,7 +112,7 @@ function createBackNav(pathToParent, title) {
 
     div.id = pathToParent
     div.onclick = function () {
-        console.log(`document.body=${div.id}[body]`)
+        window.scroll(0, 0)
         let f = new Function(`document.body=${div.id}['body']`)
         f()
     }

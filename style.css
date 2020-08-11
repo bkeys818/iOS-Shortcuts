@@ -52,6 +52,7 @@ header div {
     transform: translateY(-50%);
 }
 header div * {
+    font-stretch: 24px;
     position: relative;
     display: inline;
     vertical-align: middle;
