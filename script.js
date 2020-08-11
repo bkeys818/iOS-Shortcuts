@@ -28,10 +28,8 @@ document.body = landing
 let table1 = buildOutTable('Basic Metadata', input, ['landing'])
 landing.appendChild(table1)
 
-
 // Set body to main page
 document.body = landing
-
 
 
 /*** FUNCTIONS ***/
