@@ -40,11 +40,10 @@ body {
 
 header {
     position: relative;
-    height: 132px;
+    height: 66px;
     width: 100vw;
-    background-color: #F2F2F6;
     font-size: 3.1875em; /* 51px */
-    color: #007AFF;
+    color: #007aff;
 }
 header div {
     position: absolute;
