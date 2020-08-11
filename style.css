@@ -40,15 +40,13 @@ body {
 
 header {
     position: relative;
-    height: 42px;
+    height: 132px;
     width: 100vw;
     font-size: 3.1875em; /* 51px */
     color: #007aff;
 }
 header div {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    margin: 30px 0;
 }
 header div * {
     font-stretch: 24px;
@@ -81,6 +79,8 @@ caption {
     text-transform: uppercase;
     color: #3C3C43;
     opacity: 60%;
+}
+body#landing caption{
     margin-top: 96px;
 }
 
@@ -109,13 +109,16 @@ table:last-of-type .key, table:last-of-type .value {
 
 .key {
     text-align: left;
-    padding-right: calc(75% * (48 / 1125));
+    margin-right: calc(75% * (48 / 1125));
+}
+.key p {
+    margin-right: calc(75vw * (48 / 1125));
 }
 
 .value {
     text-align: right;
     padding-right: calc(100% * (48 / 1125));
-    /* color: #3C3C43; */
+    color: #3C3C43;
     opacity: 60%;
     word-break: break-all;
 }
