@@ -40,7 +40,7 @@ body {
 
 header {
     position: relative;
-    height: 66px;
+    height: 42px;
     width: 100vw;
     font-size: 3.1875em; /* 51px */
     color: #007aff;
@@ -115,7 +115,7 @@ table:last-of-type .key, table:last-of-type .value {
 .value {
     text-align: right;
     padding-right: calc(100% * (48 / 1125));
-    color: #3C3C43;
+    /* color: #3C3C43; */
     opacity: 60%;
     word-break: break-all;
 }
