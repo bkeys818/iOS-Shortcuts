@@ -44,29 +44,33 @@ function buildOutTable(header, obj, pathArray) {
         } else {
             let row = createRow(key, '<svg xmlns="http://www.w3.org/2000/svg" width="25.426" height="44.177" style="padding-top:3px"><path d="M24.404 24.355L5.03 43.329a2.958 2.958 0 11-4.134-4.232l17.432-17.01L.896 5.08A2.984 2.984 0 010 2.963 2.923 2.923 0 012.963 0 2.88 2.88 0 015.03.847l19.374 18.95a3.249 3.249 0 011.022 2.29 2.965 2.965 0 01-1.022 2.268z" fill="#C7C7CC"/></svg>')
             table.appendChild(row)
-                    
+            
             let newBody = bodys.createBody(key, pathArray)
             let newPathArray = [...pathArray]
             newPathArray.push(key)
-        
+            
             if (Array.isArray(value) == true) {
-                let newTable = createTable(header)
-                for (item of array) {
-                    let newRow = createRow("", item)
+                let newTable = createTable(key)
+                for (item of value) {
+                    let newRow = createRow(item, "")
                     newTable.appendChild(newRow)
                 }
                 newBody.appendChild(newTable)
             } else {
-                let newTable = buildOutTable()
-                console.log(newTable)
+                let newTable = buildOutTable(key, value, newPathArray)
                 newBody.appendChild(newTable)
             }
             
-            setRowID(bodys, row, key, pathArray)
-        
+            // Set Row ID
+            let path = 'bodys'
+            for (page of pathArray) {
+                window.scroll(0, 0)
+                path += `['${page}']['children']`
+            }
+            let f = new Function('bodys', 'row', `row.id = "${path}['${key}'].body";`)
+            f(bodys, row)
+            
             row.onclick = function () {
-                //console.log(bodys)
-                //console.log(row.id)
                 let f1 = new Function('bodys', 'row', `document.body=${row.id}`)
                 f1(bodys, row)
             }
@@ -109,15 +113,4 @@ function createBackNav(pathToParent, title) {
     }
     header.appendChild(div)
     return header
-}
-
-function setRowID(bodys, row, key, pathArray) {
-    let path = 'bodys'
-    for (page of pathArray) {
-        window.scroll(0, 0)
-        path += `['${page}']['children']`
-    }
-
-    let f = new Function('bodys', 'row', `row.id = "${path}['${key}'].body";`)
-    f(bodys, row)
 }
