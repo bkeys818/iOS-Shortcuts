@@ -25,6 +25,5 @@ try {
 
 const input = dictinoary
 
-
 // Adjust to screen size
     // Cooming Soon
