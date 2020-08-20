@@ -1,10 +1,11 @@
 {
-  "version": "1.2.2",
-  "update": "shortcuts://shortcuts/3be41355d42c49e68bc071db370734fb",
+  "version": "1.2.3",
+  "update": "shortcuts://shortcuts/05358f5d8a394c5b88988e2035fee21c",
   "notes": {
     "1.1.0": "First Version",
     "1.2.0": " - Metadata is now much easier to read!",
     "1.2.1": " - List is shown in a Safari view controller, not the quick view.\n - Shortcut runs much faster.",
-    "1.2.2": " - New update alert shows more details"
+    "1.2.2": " - New update alert shows more details",
+    "1.2.3": " - Bug Fixes!"
   }
 }
