@@ -1,5 +1,5 @@
 # iOS Shortcuts
 
-### [Get Details](get-details/README.md#get-details)
+### [Get Details](get-details#get-details)
 
-### [Receipt Scanner](receipt-scanner/README.md#receipt-scanner-shortcut)
+### [Receipt Scanner](receipt-scanner#receipt-scanner-shortcut)
