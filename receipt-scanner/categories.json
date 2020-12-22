@@ -1,0 +1,102 @@
+{
+	"Home": [
+		"Rent",
+		"Renter's Insurance",
+		"Repairs / Maintenance",
+		"Decorations / Furniture"
+	],
+	"Utilities": [
+		"Water",
+		"Electricity",
+		"Gas/Heating",
+		"Internet",
+		"Cable TV",
+		"Cellphone"
+	],
+	"Food": [
+		"Groceries",
+		"Restaurant / Fast Food",
+		"Snacks",
+		"Coffee"
+	],
+	"Car / Transportation": [
+		"Gas",
+		"Car Insurance",
+		"Cosmetics / Upgrades (new floor mats, better exhaust,etc..)",
+		"Repairs (New Alternator, busted window, etc..)",
+		"Maintenance (Oil Change,Tires,etc..)",
+		"Parking",
+		"DMV Fees (registration, city sticker,etc..)",
+		"Tickets",
+		"Public Transportation (CTA/Metra,etc..)",
+		"Taxi Service (Taxi / Uber)",
+		"Purchase / Down-payment"
+	],
+	"Personal": [
+		"Clothing",
+		"Laundry",
+		"Haircut",
+		"Hygiene Supplies (Deodorant, Toothbrush, Condoms?)",
+		"Games",
+		"Electronics (Computer, TV, Flash Drive..etc)",
+		"Movies/Rentals/Music",
+		"Tools / Projects",
+		"Subscriptions (Gym, Xbox live, Netflix, Loot Crate)"
+	],
+	"Pet": [
+		"Food / Supplies",
+		"Training",
+		"Healthcare"
+	],
+	"Medical": [
+		"Primary Care / Co-pay",
+		"Dental Care",
+		"Specialty Care",
+		"Medications",
+		"Medical Devices",
+		"Health Insurance",
+		"Life Insurance"
+	],
+	"Entertainment": [
+		"Entrance Fees / Tickets",
+		"Drinks",
+		"Hotel / Lodging",
+		"Travel Tickets (Plane/Bus/Train)",
+		"Other",
+		"Vacation Cost"
+	],
+	"Education": [
+		"College Fees",
+		"Specialty Program (Workshop Course)",
+		"Certifications",
+		"School Supplies",
+		"Books"
+	],
+	"Retirement": [
+		"401 k",
+		"Emergency Fund",
+		"God-Son Savings",
+		"My Savings",
+		"Investments"
+	],
+	"Debt": [
+		"Mortgage",
+		"Car Payments",
+		"Credit Card",
+		"Personal Loan  Pawn",
+		"Student Loan",
+		"Taxes"
+	],
+	"Miscellaneous": [
+		"Bank Fees (spend 1$, pay 2 more #TCF Bank)",
+		"Change Adjustment (Offset / change thrown in car)",
+		"UnknownForgotten (Spent and didn't log fast enough)",
+		"Missing  Stolen (nobody knows)"
+	],
+	"Giving": [
+		"Occasional Gift (Christmas, Anniversary,Birthday)",
+		"Spontaneous Gift *(Treat friend to lunch, toy for niece)",
+		"Charity (guy on the corner or formal charity)",
+		"Borrow - Paid Out"
+	]
+}
