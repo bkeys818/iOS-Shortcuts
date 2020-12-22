@@ -1,2 +1,13 @@
-# receipt-scanner
-iOS shortcut for receipt scanning
+# Receipt Scanner Shortcut
+
+## Getting started
+
+### [Add shortcut]()
+
+### Usage
+
+___
+
+## Sources
+
+  Categories are from a [redit post](https://www.reddit.com/r/personalfinance/comments/3qs1k9/budget_categories/)
